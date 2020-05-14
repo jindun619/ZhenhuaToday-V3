@@ -134,11 +134,24 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Custom Scripts -->
+    <!-- My Scripts -->
     <script src="../js/functions.js"></script>
     <script src="../js/time-handle.js"></script>
     <script src="../js/calendar.js"></script>
+  
+    <!-- PHP Get Food Things Data
+    <? include "../php/functions.php"; ?>
+    <? include "../gitignore/ignore_functions.php"; ?>
+    <? include "../php/load_db.php"; ?>
 
+    <!-- PHP arrays into JS arrays -->
+    <script>
+      var food = <? echo json_encode($food); ?>;
+      var foodDate = <? echo json_encode($food_date); ?>;
+      var todayWords = <? echo json_encode($today_word); ?>;
+      // console.log(food, foodDate, todayWords);
+    </script>
+  
     <!-- REACT -->
     <script
       crossorigin

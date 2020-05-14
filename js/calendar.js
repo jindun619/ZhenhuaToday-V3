@@ -12,7 +12,7 @@ function getCalendar(target, date) {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   var month = d.getMonth(); //0-11
   var year = d.getFullYear(); //2014
@@ -95,6 +95,6 @@ function paintCalendar(day_no, days) {
   return table;
 }
 
-const a = document.querySelector("#calendar");
+const calendar = document.querySelector("#calendar");
 
-getCalendar(a, getTodayDate());
+getCalendar(calendar, selectedDate);

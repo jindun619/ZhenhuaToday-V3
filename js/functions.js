@@ -42,13 +42,19 @@ function getCurrentTime() {
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
-function makeFoodArray(foodType) {
-  const a = foodObj[foodType];
-  const aArray = [a.kor_name, "../food/food_img/" + a.id + "." + a.img_ext]; //LINKS
-  return aArray;
+function makeFoodArray(foodType, lang) {
+  if (lang == "kor") {
+    const a = food[foodType];
+    const aArray = [a.kor_name, "../../food_img/" + a.id + "." + a.img_ext]; //LINKS
+    return aArray;
+  } else if (lang == "cna") {
+    const a = food[foodType];
+    const aArray = [a.cna_name, "../../food_img/" + a.id + "." + a.img_ext]; //LINKS
+    return aArray;
+  }
 }
 
-function getFoodPara(para_obj) {
+function getFoodPara(para_obj, lang) {
   let result = [];
 
   const soup = para_obj[0].soup;
@@ -58,12 +64,12 @@ function getFoodPara(para_obj) {
   const food4 = para_obj[0].food4;
   const food5 = para_obj[0].food5;
 
-  const array1 = makeFoodArray(soup);
-  const array2 = makeFoodArray(food1);
-  const array3 = makeFoodArray(food2);
-  const array4 = makeFoodArray(food3);
-  const array5 = makeFoodArray(food4);
-  const array6 = makeFoodArray(food5);
+  const array1 = makeFoodArray(soup, lang);
+  const array2 = makeFoodArray(food1, lang);
+  const array3 = makeFoodArray(food2, lang);
+  const array4 = makeFoodArray(food3, lang);
+  const array5 = makeFoodArray(food4, lang);
+  const array6 = makeFoodArray(food5, lang);
 
   result.push(array1);
   result.push(array2);
@@ -72,5 +78,6 @@ function getFoodPara(para_obj) {
   result.push(array5);
   result.push(array6);
 
+  console.log(result);
   return result;
 }

@@ -68,43 +68,39 @@ function Nav({ active }) {
 }
 
 // Food Components
-function FoodContainer({ foodMenu }) {
+function FoodContainer({ foodMenu, lang }) {
   const printedDate = getPrintedDate(selectedDate);
-  const todayMenu = foodMenu.filter(value => {
+  const todayMenu = foodMenu.filter((value) => {
     return value.date === printedDate;
   });
 
-  const bfObj = todayMenu.filter(value => {
+  const bfObj = todayMenu.filter((value) => {
     return value.bld == 0;
   });
-  const lcObj = todayMenu.filter(value => {
+  const lcObj = todayMenu.filter((value) => {
     return value.bld == 1;
   });
-  const dnObj = todayMenu.filter(value => {
+  const dnObj = todayMenu.filter((value) => {
     return value.bld == 2;
   });
 
   return (
     <div className="row">
-      <FoodMenu menu={bfObj} bld="0" />
-      <FoodMenu menu={lcObj} bld="1" />
-      <FoodMenu menu={dnObj} bld="2" />
+      <FoodMenu menu={bfObj} bld="0" lang={lang} />
+      <FoodMenu menu={lcObj} bld="1" lang={lang} />
+      <FoodMenu menu={dnObj} bld="2" lang={lang} />
     </div>
   );
 }
 
-var tmp1 = "kimchi";
-var tmp2 =
-  "https://www.koreanbapsang.com/wp-content/uploads/2016/10/DSC_1843-e1477360668451.jpg";
-
-function FoodMenu({ menu, bld }) {
-  const foodPara = getFoodPara(menu);
+function FoodMenu({ menu, bld, lang }) {
+  const foodPara = getFoodPara(menu, lang);
   return (
     <div className="col-md-4 mb-3">
       <div className="alert alert-primary border border-primary mt-3 mb-0">
         <h4 className="m-0 text-center text-primary">{bld}</h4>
       </div>
-      {foodPara.map(value => {
+      {foodPara.map((value) => {
         return <FoodItem name={value[0]} img={value[1]} />;
       })}
     </div>
