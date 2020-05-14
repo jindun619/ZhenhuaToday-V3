@@ -4,7 +4,7 @@
 
 ---
 
-### 振华 TODAY version.3 is coming soon with completely remodeled design!
+### 振华 TODAY version.3 is coming soon with a completely remodeled design!
 
 [Bootstrap 4](https://getbootstrap.com/) will be included to my project!
 
